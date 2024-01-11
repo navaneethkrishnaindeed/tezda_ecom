@@ -13,4 +13,11 @@ class LoginCubit extends Cubit<LoginState> {
         .signInWithEmailAndPassword(email: email, password: password);
     print(res.user);
   }
+
+  signup({required String email, required String password}) async {
+    var res = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: password);
+    FirebaseAuth.instance.signOut();
+    print(res.user);
+  }
 }

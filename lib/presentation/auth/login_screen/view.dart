@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tezda_ecom/application/auth/login/cubit/login_cubit.dart';
 import 'package:tezda_ecom/domain/utils/screen_sizes.dart';
 
+import '../../../domain/routes/routes.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -141,6 +143,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(15)),
                 alignment: Alignment.center,
                 child: Text("Submit", style: TextStyle(color: Colors.white)),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(RoutePath.signupScreen);
+              },
+              child: Center(
+                child: Text(
+                  "SignUP",
+                  style: GoogleFonts.roboto(
+                      fontSize: 16, color: Color.fromARGB(255, 16, 84, 140)),
+                ),
               )),
           SizedBox(
             height: ScreenSizes(context).screenHeightFraction(percent: 5),

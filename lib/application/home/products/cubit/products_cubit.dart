@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tezda_ecom/application/home/home_controller.dart';
@@ -17,11 +19,13 @@ class ProductsCubit extends Cubit<ProductsState> {
   }
 
   getProductsByCategoryID({required String category_ID}) async {
-    var products = await repository.getCategoryProducts(category_ID: category_ID);
+    var products =
+        await repository.getCategoryProducts(category_ID: category_ID);
     HomeController.products.value = products;
   }
 
   getSingleProduct({required String product_ID}) async {
+   
     var product = await repository.getSingleProduct(product_ID: product_ID);
     HomeController.product.value = product;
   }

@@ -35,6 +35,8 @@ class RepositoryImpl implements IProductRepo {
     }).toList();
 
     print(datas[0].category.toString());
+        HomeController.products.value = datas;
+
     return datas;
   }
 
@@ -47,6 +49,7 @@ class RepositoryImpl implements IProductRepo {
     final datas = ((jsonDecode(responce.data)) as List).map((e) {
       return Product.fromJson(e);
     }).toList();
+        HomeController.products.value = datas;
 
     return datas;
   }
@@ -58,6 +61,8 @@ class RepositoryImpl implements IProductRepo {
         endPoint: EndPoint.getSingleProductByID);
 
     var product = Product.fromJson(jsonDecode(responce.data));
+            HomeController.product.value = product;
+
     print(product.title);
     return product;
   }
